@@ -5,10 +5,12 @@ import {
   Text,
   FlatList,
   TouchableOpacity,
+  TouchableWithoutFeedback,
   Modal,
   Keyboard,
 } from "react-native";
 import { MaterialIcons } from "@expo/vector-icons";
+import GoalForm from "./goalForm";
 
 export default function Goal({ navigation }) {
   const [modalOpen, setModalOpen] = useState(false);
@@ -25,7 +27,7 @@ export default function Goal({ navigation }) {
       description: "Cook dinner and don't eat junk food",
       startDate: "01/01/2024",
       endDate: "01/01/2025",
-      key: 1,
+      key: 2,
     },
   ]);
 
@@ -48,7 +50,7 @@ export default function Goal({ navigation }) {
               style={{ ...styles.modalToggle, ...styles.modalClose }}
               onPress={() => setModalOpen(false)}
             />
-            <ReviewForm addGoal={addGoal} />
+            <GoalForm addGoal={addGoal} />
           </View>
         </Modal>
       </TouchableWithoutFeedback>

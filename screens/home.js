@@ -1,10 +1,15 @@
 import React, { useState } from "react";
-import { Text, View } from "react-native";
+import { Text, TouchableOpacity } from "react-native";
 
-export default function Home() {
+export default function Home({ navigation }) {
   return (
-    <View>
-      <Text>Hello world</Text>
-    </View>
+    <TouchableOpacity
+      style={{ paddingTop: 50 }}
+      onPress={() => {
+        navigation.navigate("Goals");
+      }}
+    >
+      <Text>Button</Text>
+    </TouchableOpacity>
   );
 }

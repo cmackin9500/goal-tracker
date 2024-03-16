@@ -1,12 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { StyleSheet, Button, TextInput, View, Text } from "react-native";
-import { globalStyles } from "../styles/global";
 import { Formik } from "formik";
 import * as yup from "yup";
 import { TouchableOpacity } from "react-native-gesture-handler";
 
-import FootCard from "../shared/footCard";
-import FlatButton from "../shared/button";
+import { globalStyles } from "../styles/global";
 
 const reviewSchema = yup.object({
   name: yup.string().required().min(2),
@@ -30,7 +28,7 @@ const reviewSchema = yup.object({
     }),
 });
 
-export default function ReviewForm({ addGoal }) {
+export default function GoalForm({ addGoal }) {
   return (
     <View style={globalStyles.container}>
       <Formik
@@ -91,8 +89,6 @@ export default function ReviewForm({ addGoal }) {
             <Text style={globalStyles.errorText}>
               {props.touched.rating && props.errors.rating}
             </Text>
-
-            <FlatButton text="submit" onPress={props.handleSubmit} />
           </View>
         )}
       </Formik>
