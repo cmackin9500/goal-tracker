@@ -48,7 +48,7 @@ export default function GoalForm({ addGoal }) {
           <View>
             <TextInput
               style={globalStyles.input}
-              placeholder="Player Name"
+              placeholder="Title"
               onChangeText={props.handleChange("name")}
               value={props.values.name}
               onBlur={props.handleBlur("name")}
@@ -59,7 +59,7 @@ export default function GoalForm({ addGoal }) {
 
             <TextInput
               style={globalStyles.input}
-              placeholder="Foot"
+              placeholder="Description"
               onChangeText={props.handleChange("foot")}
               value={props.values.foot}
               onBlur={props.handleBlur("foot")}
@@ -70,7 +70,7 @@ export default function GoalForm({ addGoal }) {
 
             <TextInput
               style={globalStyles.input}
-              placeholder="Height"
+              placeholder="Start Date"
               onChangeText={props.handleChange("height")}
               value={props.values.height}
               onBlur={props.handleBlur("height")}
@@ -80,7 +80,7 @@ export default function GoalForm({ addGoal }) {
             </Text>
             <TextInput
               style={globalStyles.input}
-              placeholder="Rating (1-5)"
+              placeholder="End Date"
               onChangeText={props.handleChange("rating")}
               value={props.values.rating}
               keyboardType="numeric"

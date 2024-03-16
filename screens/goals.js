@@ -67,7 +67,7 @@ export default function Goal({ navigation }) {
         renderItem={({ item }) => (
           <TouchableOpacity
             onPress={() => {
-              navigation.navigate("Goal Detail", item);
+              navigation.navigate("Goal Details", item);
             }}
           >
             <Text>{item.title}</Text>
