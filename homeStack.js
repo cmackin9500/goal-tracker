@@ -25,11 +25,11 @@ export default function HomeStack({ para }) {
 
             if (route.name === "Add") {
               iconName = focused ? "close" : "add";
-            } else if (route.name === "Settings") {
-              iconName = focused ? "ios-list" : "ios-list-outline";
+            } else if (route.name === "Home") {
+              iconName = "home";
+            } else if (route.name === "Goals") {
+              iconName = "bar-chart";
             }
-
-            // You can return any component that you like here!
             return <Ionicons name={iconName} size={size} color={color} />;
           },
           tabBarActiveTintColor: "tomato",
