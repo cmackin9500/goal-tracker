@@ -8,6 +8,8 @@ import {
   TouchableWithoutFeedback,
   Modal,
   Keyboard,
+  Image,
+  Icon,
 } from "react-native";
 import { MaterialIcons } from "@expo/vector-icons";
 import GoalForm from "./goalForm";
@@ -67,13 +69,30 @@ export default function Goal({ navigation }) {
         <FlatList
           data={goals}
           renderItem={({ item }) => (
-            <TouchableOpacity
-              onPress={() => {
-                navigation.navigate("Goal Details", item);
-              }}
-            >
-              <Text style={styles.goalText}>{item.title}</Text>
-            </TouchableOpacity>
+            <View style={styles.rowContainer}>
+              <TouchableOpacity
+                style={{
+                  display: "flex",
+                  borderWidth: 1,
+                  borderColor: "rgba(0,0,0,0.2)",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  width: 30,
+                  height: 30,
+                  backgroundColor: "#fff",
+                  borderRadius: 50,
+                }}
+              ></TouchableOpacity>
+              <TouchableOpacity
+                onPress={() => {
+                  navigation.navigate("Goal Details", item);
+                }}
+              >
+                <View style={styles.rowContainer}>
+                  <Text style={styles.goalText}>{item.title}</Text>
+                </View>
+              </TouchableOpacity>
+            </View>
           )}
         />
       </View>
@@ -88,14 +107,19 @@ const styles = StyleSheet.create({
   },
   goalText: {
     fontSize: 20,
-    borderRadius: 5,
-    borderWidth: 1,
-    borderColor: "#d4d4d4",
     padding: 10,
   },
   goalBorder: {
     borderColor: "black",
   },
+  rowContainer: {
+    flex: 1,
+    flexDirection: "row",
+    borderRadius: 5,
+    borderWidth: 1,
+    borderColor: "#d4d4d4",
+  },
+
   modalClose: { marginTop: 40, marginBottom: 0 },
   modalToggle: {
     marginBottom: 10,
