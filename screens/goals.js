@@ -41,45 +41,61 @@ export default function Goal({ navigation }) {
 
   return (
     <View style={styles.container}>
-      <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-        <Modal visible={modalOpen} animationType="slide">
-          <View style={styles.modalContent}>
-            <MaterialIcons
-              name="close"
-              size={24}
-              style={{ ...styles.modalToggle, ...styles.modalClose }}
-              onPress={() => setModalOpen(false)}
-            />
-            <GoalForm addGoal={addGoal} />
-          </View>
-        </Modal>
-      </TouchableWithoutFeedback>
+      <View>
+        <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+          <Modal visible={modalOpen} animationType="slide">
+            <View style={styles.modalContent}>
+              <MaterialIcons
+                name="close"
+                size={24}
+                style={{ ...styles.modalToggle, ...styles.modalClose }}
+                onPress={() => setModalOpen(false)}
+              />
+              <GoalForm addGoal={addGoal} />
+            </View>
+          </Modal>
+        </TouchableWithoutFeedback>
+        <MaterialIcons
+          name="add"
+          size={24}
+          style={styles.modalToggle}
+          onPress={() => setModalOpen(true)}
+        />
+      </View>
 
-      <MaterialIcons
-        name="add"
-        size={24}
-        style={styles.modalToggle}
-        onPress={() => setModalOpen(true)}
-      />
-
-      <FlatList
-        data={goals}
-        renderItem={({ item }) => (
-          <TouchableOpacity
-            onPress={() => {
-              navigation.navigate("Goal Details", item);
-            }}
-          >
-            <Text>{item.title}</Text>
-          </TouchableOpacity>
-        )}
-      />
+      <View style={styles.goalContainer}>
+        <FlatList
+          data={goals}
+          renderItem={({ item }) => (
+            <TouchableOpacity
+              onPress={() => {
+                navigation.navigate("Goal Details", item);
+              }}
+            >
+              <Text style={styles.goalText}>{item.title}</Text>
+            </TouchableOpacity>
+          )}
+        />
+      </View>
     </View>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {},
+  container: { flex: 1 },
+  goalContainer: {
+    flex: 1,
+  },
+  goalText: {
+    fontSize: 20,
+    borderRadius: 5,
+    borderWidth: 1,
+    borderColor: "#d4d4d4",
+    padding: 10,
+  },
+  goalBorder: {
+    borderColor: "black",
+  },
   modalClose: { marginTop: 40, marginBottom: 0 },
   modalToggle: {
     marginBottom: 10,
