@@ -6,12 +6,12 @@ import Ionicons from "react-native-vector-icons/Ionicons";
 
 import Home from "./screens/home";
 import Goal from "./screens/goals";
-import GoalDetails from "./screens/goalDetails";
 import GoalForm from "./screens/goalForm";
+import GoalStack from "./goalStack";
 
 const Tab = createBottomTabNavigator();
 
-export default function HomeStack({ para }) {
+export default function HomeStack({}) {
   const navigation = useNavigation();
   const Stack = createNativeStackNavigator();
 
@@ -42,7 +42,7 @@ export default function HomeStack({ para }) {
           options={{ headerShown: false }}
         />
         <Tab.Screen name="Add" component={GoalForm} />
-        <Tab.Screen name="Goals" component={Goal} />
+        <Tab.Screen name="Goals" component={GoalStack} />
       </Tab.Navigator>
     </NavigationContainer>
   );

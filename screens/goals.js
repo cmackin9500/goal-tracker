@@ -8,8 +8,6 @@ import {
   TouchableWithoutFeedback,
   Modal,
   Keyboard,
-  Image,
-  Icon,
 } from "react-native";
 import { MaterialIcons } from "@expo/vector-icons";
 import GoalForm from "./goalForm";
@@ -85,7 +83,10 @@ export default function Goal({ navigation }) {
               ></TouchableOpacity>
               <TouchableOpacity
                 onPress={() => {
-                  navigation.navigate("Goal Details", item);
+                  navigation.navigate("Goals", {
+                    screen: "Goal Detail",
+                    params: item,
+                  });
                 }}
               >
                 <View style={styles.rowContainer}>

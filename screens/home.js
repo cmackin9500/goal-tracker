@@ -17,7 +17,7 @@ export default function Home({ navigation }) {
       <TouchableOpacity
         style={{ paddingTop: 50 }}
         onPress={() => {
-          navigation.navigate("Goals");
+          navigation.navigate("Goals Details");
         }}
       >
         <Text>Button</Text>
@@ -26,7 +26,7 @@ export default function Home({ navigation }) {
       <TouchableWithoutFeedback
         style={styles.image}
         onPress={() => {
-          navigation.navigate("Goals");
+          navigation.navigate("Goals Details");
         }}
       >
         <Image source={require("../assets/favicon.png")} />
