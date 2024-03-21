@@ -31,30 +31,6 @@ export default function HomeStack({}) {
               iconName = "bar-chart";
               return <Ionicons name={iconName} size={size} color={color} />;
             }
-
-            iconName = focused ? "close" : "add";
-            return (
-              <TouchableOpacity
-                style={{
-                  height: 80,
-                  width: 80,
-                  borderRadius: 100,
-                  backgroundColor: "#FE6D64",
-                  paddingTop: 15,
-                }}
-              >
-                <Ionicons
-                  name={iconName}
-                  size={45}
-                  color={color}
-                  style={{
-                    alignContent: "center",
-                    justifyContent: "center",
-                    marginLeft: 16,
-                  }}
-                />
-              </TouchableOpacity>
-            );
           },
           tabBarActiveTintColor: "tomato",
           tabBarInactiveTintColor: "gray",
@@ -65,7 +41,51 @@ export default function HomeStack({}) {
           component={Home}
           options={{ headerShown: false }}
         />
-        <Tab.Screen name="Add" component={GoalForm} />
+        <Tab.Screen
+          name="Add"
+          component={GoalForm}
+          options={({ navigation }) => ({
+            tabBarButton: () => (
+              <View
+                style={{
+                  borderColor: "black",
+                  borderRadius: 10,
+                  position: "absolute",
+                  top: 0,
+                  left: 0,
+                  right: 0,
+                  bottom: 0,
+                  justifyContent: "center",
+                  alignItems: "center",
+                }}
+              >
+                <TouchableOpacity
+                  onPress={() => navigation.navigate("Add")}
+                  style={{
+                    height: 80,
+                    width: 80,
+                    borderRadius: 100,
+                    borderWidth: 3,
+                    borderColor: "black",
+                    backgroundColor: "#FE6D64",
+                    paddingTop: 15,
+                  }}
+                >
+                  <Ionicons
+                    name={"add"}
+                    size={45}
+                    color={"green"}
+                    style={{
+                      alignContent: "center",
+                      justifyContent: "center",
+                      marginLeft: 14,
+                    }}
+                  />
+                </TouchableOpacity>
+              </View>
+            ),
+          })}
+        />
         <Tab.Screen name="Goals" component={GoalStack} />
       </Tab.Navigator>
     </NavigationContainer>
