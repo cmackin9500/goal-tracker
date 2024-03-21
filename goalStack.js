@@ -9,7 +9,11 @@ const Stack = createNativeStackNavigator();
 
 export default function GoalStack({}) {
   return (
-    <Stack.Navigator>
+    <Stack.Navigator
+      screenOptions={{
+        headerShown: false,
+      }}
+    >
       <Stack.Screen name="Goal" component={Goal} />
       <Stack.Screen name="Goal Detail" component={GoalDetails} />
     </Stack.Navigator>
